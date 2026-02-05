@@ -451,6 +451,64 @@ main {
   color: var(--accent-strong);
 }
 
+.recipe-meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 10px 0 14px;
+}
+
+.recipe-meta-item {
+  background: rgba(21, 30, 26, 0.85);
+  border: 1px solid #26332d;
+  border-radius: 14px;
+  padding: 10px 14px;
+  display: grid;
+  gap: 4px;
+  min-width: 140px;
+}
+
+.recipe-meta-item strong {
+  font-size: 1rem;
+}
+
+.recipe-meta-item.calories strong::before {
+  content: "•";
+  color: var(--accent-warm);
+  margin-right: 6px;
+}
+
+.recipe-steps {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  counter-reset: step;
+}
+
+.recipe-steps li {
+  position: relative;
+  padding-left: 34px;
+  line-height: 1.4;
+}
+
+.recipe-steps li::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  background: rgba(52, 211, 153, 0.18);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid rgba(52, 211, 153, 0.4);
+}
+
 .chip-row {
   display: flex;
   gap: 10px;
@@ -551,3 +609,6 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   }
 }
+
+
+
