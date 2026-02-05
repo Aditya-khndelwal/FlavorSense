@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FlavorSense Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-orbs" aria-hidden="true">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+  </div>
+  <div class="app">
+    <header class="topbar">
+      <div class="logo">
+        <span class="logo-mark">F</span>
+        <span class="logo-text">FlavorSense</span>
+      </div>
+      <nav class="topbar-actions">
+        <button class="ghost" data-nav="home">Home</button>
+        <button class="ghost" data-nav="explore">Explore</button>
+        <button class="ghost" data-nav="recipe">Recipe</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="welcome" class="screen active">
+        <div class="hero">
+          <div class="hero-text">
+            <p class="eyebrow">Taste Starts Here</p>
+            <h1>Your taste. Your flavors. Your mix.</h1>
+            <p class="lead">A Spotify-inspired food discovery experience that turns your cravings into custom flavor playlists.</p>
+            <div class="cta-row">
+              <button class="primary" data-next="onboarding">Get Started</button>
+              <button class="secondary" data-next="home">Skip for Demo</button>
+            </div>
+          </div>
+          <div class="hero-card">
+            <div class="card-title">Today’s Flavor Mix</div>
+            <div class="mix-item">
+              <span>Umami Mix</span>
+              <span class="muted">42%</span>
+            </div>
+            <div class="mix-item">
+              <span>Spicy Mix</span>
+              <span class="muted">28%</span>
+            </div>
+            <div class="mix-item">
+              <span>Citrus Mix</span>
+              <span class="muted">18%</span>
+            </div>
+            <div class="mix-item">
+              <span>Sweet Mix</span>
+              <span class="muted">12%</span>
+            </div>
+            <div class="mini-wave"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="onboarding" class="screen">
+        <div class="screen-header">
+          <h2>Pick your flavor genres</h2>
+          <p class="muted">Tap at least three. We’ll build your Flavor Mix playlist.</p>
+        </div>
+        <div class="chip-grid" id="flavorChips"></div>
+        <div class="footer-actions">
+          <button class="secondary" data-prev="welcome">Back</button>
+          <button class="primary" id="continueToMix" disabled>Continue</button>
+        </div>
+      </section>
+
+      <section id="mix" class="screen">
+        <div class="screen-header">
+          <h2>Your Flavor Mix</h2>
+          <p class="muted">We made these flavor playlists for you.</p>
+        </div>
+        <div class="mix-list" id="mixList"></div>
+        <div class="footer-actions">
+          <button class="secondary" data-prev="onboarding">Back</button>
+          <button class="primary" data-next="home">See Mixes</button>
+        </div>
+      </section>
+
+      <section id="home" class="screen">
+        <div class="screen-header">
+          <h2>Your Daily Taste Mix</h2>
+          <p class="muted">Based on your flavor selections and recent cravings.</p>
+        </div>
+        <div class="card-grid" id="dailyMix"></div>
+
+        <div class="screen-header slim">
+          <h3>Discovery Bites</h3>
+          <p class="muted">Fresh finds with flavor chemistry you’ll love.</p>
+        </div>
+        <div class="card-grid" id="discoveryMix"></div>
+
+        <div class="screen-header slim">
+          <h3>Recently Tried</h3>
+        </div>
+        <div class="pill-row" id="recentlyTried"></div>
+      </section>
+
+      <section id="explore" class="screen">
+        <div class="screen-header">
+          <h2>Explore Flavors</h2>
+          <p class="muted">Go deeper into ingredients, pairings, and cultural mixes.</p>
+        </div>
+        <div class="explore-grid">
+          <div class="explore-card">
+            <h4>Flavor Genres</h4>
+            <p class="muted">Browse spicy, smoky, herbal, and more.</p>
+            <button class="ghost">Browse</button>
+          </div>
+          <div class="explore-card">
+            <h4>Ingredient Vibes</h4>
+            <p class="muted">Discover what basil, miso, or citrus love.</p>
+            <button class="ghost">Discover</button>
+          </div>
+          <div class="explore-card">
+            <h4>Flavor Chemistry</h4>
+            <p class="muted">Pairings based on shared aroma molecules.</p>
+            <button class="ghost">Explore</button>
+          </div>
+          <div class="explore-card">
+            <h4>Cultural Mixes</h4>
+            <p class="muted">Taste journeys inspired by regional palettes.</p>
+            <button class="ghost">Tour</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="recipe" class="screen">
+        <div class="recipe-hero" id="recipeHero">
+          <div>
+            <p class="eyebrow">Recipe Spotlight</p>
+            <h2 id="recipeTitle">Lemon Herb Chicken</h2>
+            <p class="muted" id="recipeMood">Citrus + Herbal + Light Umami</p>
+            <div class="chip-row" id="recipeTags"></div>
+          </div>
+          <div class="recipe-score" id="recipeScore">87% Match</div>
+        </div>
+        <div class="recipe-body">
+          <div>
+            <h4>Ingredients</h4>
+            <ul id="recipeIngredients"></ul>
+          </div>
+          <div>
+            <h4>Similar Flavors</h4>
+            <div class="card-grid" id="similarRecipes"></div>
+          </div>
+        </div>
+        <div class="footer-actions">
+          <button class="secondary" data-prev="home">Back to Home</button>
+          <button class="primary" data-next="explore">Explore More</button>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="tab" data-nav="welcome">
+        <span class="tab-label">Welcome</span>
+      </button>
+      <button class="tab" data-nav="home">
+        <span class="tab-label">Home</span>
+      </button>
+      <button class="tab" data-nav="explore">
+        <span class="tab-label">Explore</span>
+      </button>
+      <button class="tab" data-nav="recipe">
+        <span class="tab-label">Recipe</span>
+      </button>
+    </nav>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
